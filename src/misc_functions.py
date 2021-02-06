@@ -241,7 +241,13 @@ def get_example_params(example_index):
     # Process image
     prep_img = preprocess_image(original_image)
     # Define model
-    pretrained_model = models.alexnet(pretrained=True)
+    
+    # AS Replaced alexnet with resnest50
+    # pretrained_model = models.alexnet(pretrained=True)
+    print("Shit")
+    import torchvision
+    pretrained_model = torchvision.models.mobilenet_v2(pretrained = True)
+    # pretrained_model = torch.hub.load('zhanghang1989/ResNeSt', 'resnest50', pretrained = True)
     return (original_image,
             prep_img,
             target_class,
